@@ -4,7 +4,7 @@
 
         <div class="kmcc-row">
             {% for type in types %}
-                <div class="kmcc-col js-kmcc-collapsible-content">
+                <div class="kmcc-col js-kmcc-collapsible-content" data-breakpoint="767">
                     <h5 class="kmcc-collapsible-content__title js-kmcc-collapsible-content__title">
                         <span>{{ type.name | trans }}</span>
                         <svg class="icon icon--chevron--down kmcc-collapsible-content__title__icon">

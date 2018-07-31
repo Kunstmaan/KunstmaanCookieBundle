@@ -1,7 +1,7 @@
 import Component from './Component';
 
 import {
-    BREAKPOINT,
+    COLLAPSIBLE_CONTENT_IDENTIFIER,
     CONTENT_IDENTIFIER,
     TITLE_IDENTIFIER,
     CLASSES,
@@ -28,7 +28,18 @@ class CollapsibleContent extends Component {
     }
 
     shouldCollapse() {
-        return !window.matchMedia(`(min-width: ${BREAKPOINT}px)`).matches;
+        const BREAKPOINT = this.vdom.dataset.breakpoint;
+        let shouldCollapse;
+
+        if (typeof BREAKPOINT === 'undefined') {
+            shouldCollapse = true;
+        } else {
+            shouldCollapse = !window.matchMedia(`(min-width: ${BREAKPOINT}px)`).matches;
+        }
+
+        return {
+            shouldCollapse
+        };
     }
 
     resizeHandler() {

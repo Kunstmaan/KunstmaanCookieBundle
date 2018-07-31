@@ -26,6 +26,10 @@
         font-size: 20px;
     }
 
+    .header-pp {
+        margin: 0;
+    }
+
     @media (min-width: $kmcc_screen-md) {
         cursor: default;
 
@@ -52,7 +56,9 @@
     }
 
     @media (min-width: $kmcc_screen-md) {
-        display: none;
+        .js-kmcc-collapsible-content[data-breakpoint] & {
+            display: none;
+        }
     }
 }
 
@@ -67,7 +73,9 @@
     border-bottom: 1px solid $kmcc_grey--dark;
 
     @media (min-width: $kmcc_screen-md) {
-        border-bottom: none;
+        .js-kmcc-collapsible-content[data-breakpoint] & {
+            border-bottom: none;
+        }
     }
 }
 
