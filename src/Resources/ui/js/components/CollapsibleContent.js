@@ -28,9 +28,9 @@ class CollapsibleContent extends Component {
 
     shouldCollapse() {
         const BREAKPOINT = this.vdom.dataset.breakpoint;
-        return (typeof BREAKPOINT === 'undefined')
-            ? true
-            : !window.matchMedia(`(min-width: ${BREAKPOINT}px)`).matches;
+        return (typeof BREAKPOINT !== 'undefined')
+            ? !window.matchMedia(`(min-width: ${BREAKPOINT}px)`).matches
+            : true;
     }
 
     resizeHandler() {
