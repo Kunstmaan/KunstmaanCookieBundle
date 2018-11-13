@@ -4,18 +4,19 @@
 
 .kmcc-cookie-bar {
     position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
 
-    height: 100%;
+    bottom: 8px;
+    left: 8px;
+    width: calc(100vw - 16px);
+
+    height: auto;
     overflow: auto;
 
     display: none;
 
     z-index: $kmcc_z-cookie-bar;
 
-    padding: 35px 0 35px;
+    padding: 24px;
 
     background: $kmcc_grey;
 
@@ -36,10 +37,7 @@
     }
 
     @media (min-width: $kmcc_screen-md) {
-        bottom: 15px;
-        left: 15px;
-        right: 15px;
-
+        max-width: 488px;
         height: auto;
 
         cursor: default;
@@ -58,6 +56,8 @@
 
 .kmcc-cookie-bar__footer__preferences {
     display: flex;
+    flex-direction: column;
+
     margin-top: 20px;
 
     justify-content: center;
@@ -77,17 +77,13 @@
     }
 
     &__first {
-        display: none;
         width: 380px;
-        padding-right: 30px;
 
-        align-self: flex-end;
+        margin-bottom: 24px;
 
         font-size: 14px;
 
         line-height: 2;
-
-        order: 1;
 
         p {
             margin: 0;
@@ -103,15 +99,6 @@
             margin-top: 10px;
 
             font-size: 16px;
-            order: 2;
-
-            @media (min-width: $kmcc_screen-sm) {
-                display: none;
-            }
-        }
-
-        @media (min-width: $kmcc_screen-sm) {
-            display: block;
         }
     }
 
@@ -128,7 +115,6 @@
             size: 16px;
         }
 
-        order: 1;
 
         @media (min-width: $kmcc_screen-xs) {
             margin-top: 0;
@@ -137,7 +123,6 @@
         @media (min-width: $kmcc_screen-sm) {
             width: auto;
 
-            order: 2;
             align-items: flex-end;
         }
     }
