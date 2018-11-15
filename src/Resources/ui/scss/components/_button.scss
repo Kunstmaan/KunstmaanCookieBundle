@@ -11,8 +11,9 @@
     padding-bottom: 10px;
     padding-left: 15px !important; // Important to not have buttons too large so to-top-button doesn't overlap 
     padding-right: 15px !important; // Important to not have buttons too large so to-top-button doesn't overlap
+    margin: 0 auto;
     width: auto !important; // Important to not have buttons too large so to-top-button doesn't overlap 
-    max-width: none !important; // Important to not have buttons too large so to-top-button doesn't overlap  
+    max-width: 300px !important; // Important to not have buttons too large so to-top-button doesn't overlap
 
     background-color: $kmcc_button-background;
     color: $kmcc_button-color !important;
