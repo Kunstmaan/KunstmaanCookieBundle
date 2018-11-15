@@ -1,59 +1,28 @@
 <div id="kmcc-cookie-bar" class="kmcc-cookie-bar{% if cookie is empty %} kmcc-cookie-bar--visible{% endif %}">
-    <div class="kmcc-container">
-        <h2>gfgf{{ 'kuma.cookie.bar.title' | trans }}</h2>
 
-        <div class="kmcc-row">
-            {% for type in types %}
-                <div class="kmcc-col js-kmcc-collapsible-content">
-                    <h5 class="kmcc-collapsible-content__title js-kmcc-collapsible-content__title">
-                        <span>{{ type.name | trans }}</span>
-                        <svg class="icon icon--chevron--down kmcc-collapsible-content__title__icon">
-                            <use xlink:href="/frontend/img/legal/svg/symbol-defs.svg#icon--chevron--down"></use>
-                        </svg>
-                    </h5>
-                    {% if type.shortDescription is not empty %}
-                        <div class="kmcc-collapsible-content__content-container">
-                            <div class="kmcc-collapsible-content__content js-kmcc-collapsible-content__content">
-                                {{ type.shortDescription | trans | replace_url | raw }}
-                            </div>
-                        </div>
-                    {% endif %}
-                </div>
-            {% endfor %}
-        </div>
+    <div class="kmcc-cookie-bar__footer__preferences">
+        {% set preferences %}
+            <a class="js-kmcc-extended-modal-button" data-url="{{ path('kunstmaancookiebundle_legal_modal', {'internal_name': 'legal_cookie_preferences'}) }}">
+                {{ 'kuma.cookie.bar.cookie_preferences' | trans }}
+            </a>
+        {% endset %}
+        {% set privacy %}
 
-        <div class="kmcc-cookie-bar__footer">
-            <div class="kmcc-cookie-bar__footer__preferences">
-                {% set preferences %}
-                    <a class="js-kmcc-extended-modal-button" data-url="{{ path('kunstmaancookiebundle_legal_modal', {'internal_name': 'legal_cookie_preferences'}) }}">
-                        {{ 'kuma.cookie.bar.cookie_preferences' | trans }}
-                    </a>
-                {% endset %}
-                {% set privacy %}
+            <a class="js-kmcc-extended-modal-button" data-target="legal_privacy_policy" data-url="{{ path('kunstmaancookiebundle_legal_modal', {'internal_name': 'legal_privacy_policy'}) }}">
+                {{ 'kuma.cookie.bar.privacy_policy' | trans }}
+            </a>
+        {% endset %}
 
-                    <a class="js-kmcc-extended-modal-button" data-target="legal_privacy_policy" data-url="{{ path('kunstmaancookiebundle_legal_modal', {'internal_name': 'legal_privacy_policy'}) }}">
-                        {{ 'kuma.cookie.bar.privacy_policy' | trans }}
-                    </a>
-                {% endset %}
-                {% spaceless %}
-                    <div class="kmcc-cookie-bar__footer__preferences__first">
-                        <p>{{ 'kuma.cookie.bar.footer' | trans({'%preferences%': preferences, '%privacy_policy%': privacy}) | raw }}</p>
-                    </div>
-                    <div class="kmcc-cookie-bar__footer__preferences__first--mobile">
-                        {# {{ preferences }} #}
-                        {{ privacy }}
-                    </div>
-                {% endspaceless %}
 
-                <div class="kmcc-cookie-bar__footer__preferences__second">
 
-                    {% include 'KunstmaanCookieBundle:Components:AcceptAllCookiesButton.html.twig' %}
-
-                    <a class="js-kmcc-extended-modal-button" data-target="legal_cookie_preferences" data-url="{{ path('kunstmaancookiebundle_legal_modal', {'internal_name': 'legal_cookie_preferences'}) }}">
-                        {{ 'kuma.cookie.bar.change_preferences' | trans | raw }}
-                    </a>
-                </div>
+        {% spaceless %}
+            <div class="kmcc-cookie-bar__footer__preferences__first cookie-consent-bar__footer__preferences__first">
+                <p>{{ 'kuma.cookie.bar.footer' | trans({'%preferences%': preferences, '%privacy_policy%': privacy}) | raw }}</p>
             </div>
-        </div>
+        {% endspaceless %}
+
+        {% include 'KunstmaanCookieBundle:Components:AcceptAllCookiesButton.html.twig' %}
+
     </div>
+
 </div>
