@@ -4,19 +4,15 @@
 
 .kmcc-cookie-bar {
     position: fixed;
-
     bottom: 8px;
     left: 8px;
-    width: calc(100vw - 16px);
-
-    height: auto;
-    overflow: auto;
-
-    display: none;
-
+    right: 8px;
     z-index: $kmcc_z-cookie-bar;
 
+    display: none;
     padding: 24px;
+    height: auto;
+    overflow: auto;
 
     background: $kmcc_grey;
 
@@ -28,7 +24,6 @@
         font: {
             size: 33px;
         }
-
         color: $kmcc_headings;
     }
 
@@ -40,9 +35,9 @@
         max-width: 488px;
         height: auto;
 
-        cursor: default;
-
         border-bottom: none;
+
+        cursor: default;
     }
 }
 
@@ -57,11 +52,9 @@
 .kmcc-cookie-bar__footer__preferences {
     display: flex;
     flex-direction: column;
-
-    margin-top: 20px;
-
     justify-content: center;
     flex-wrap: wrap;
+    margin-top: 20px;
 
     text-align: center;
 
@@ -78,11 +71,9 @@
 
     &__first {
         width: 380px;
-
         margin-bottom: 24px;
 
         font-size: 14px;
-
         line-height: 2;
 
         p {
@@ -106,7 +97,6 @@
         display: flex;
         width: 100%;
         margin-top: 20px;
-
         flex-direction: column;
         justify-content: center;
         align-items: center;
