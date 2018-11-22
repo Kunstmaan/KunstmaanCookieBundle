@@ -40,7 +40,7 @@
 
                 padding: 0 (($kmcc-toggle-size / 2) - 5);
 
-                background: $kmcc_toggle-button--check url(../../frontend/img/legal/svg/toggle--check.svg) 50% 50% no-repeat;
+                background: $kmcc_toggle-button--check url($toggle-check-image) 50% 50% no-repeat;
             }
         }
 
@@ -91,7 +91,7 @@
         width: $kmcc-toggle-size;
         height: $kmcc-toggle-size;
 
-        background: $kmcc_grey--dark url(../../frontend/img/legal/svg/toggle--cross.svg) 50% 50% no-repeat;
+        background: $kmcc_grey--dark url($toggle-cross-image) 50% 50% no-repeat;
 
         box-shadow: 1px 1px 1px rgba($kmcc_true-black, .13);
 
