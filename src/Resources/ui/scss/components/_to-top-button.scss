@@ -19,6 +19,8 @@
 
     justify-content: center;
 
+    transform: translateX(-100%);
+
     background: $kmcc_primary-color;
     background-image: url(/frontend/img/legal/svg/arrow--up.svg);
     background-repeat: no-repeat;
@@ -28,7 +30,6 @@
     border-bottom-right-radius: 25px;
 
     transition: all .2s ease;
-    transform: translateX(-100%);
 
     @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
         position: absolute;

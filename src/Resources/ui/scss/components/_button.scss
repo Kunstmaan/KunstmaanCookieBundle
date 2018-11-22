@@ -9,28 +9,28 @@
     display: inline-block;
     padding-top: 10px;
     padding-bottom: 10px;
-    padding-left: 15px !important; // Important to not have buttons too large so to-top-button doesn't overlap 
+    padding-left: 15px !important; // Important to not have buttons too large so to-top-button doesn't overlap
     padding-right: 15px !important; // Important to not have buttons too large so to-top-button doesn't overlap
     margin: 0 auto;
-    width: auto !important; // Important to not have buttons too large so to-top-button doesn't overlap 
+    width: auto !important; // Important to not have buttons too large so to-top-button doesn't overlap
     max-width: 300px !important; // Important to not have buttons too large so to-top-button doesn't overlap
 
     background-color: $kmcc_button-background;
-    color: $kmcc_button-color !important;
 
     border-radius: 25px;
+
     border: 2px solid $kmcc_button-border-color--hover;
 
-    font: {
-        size: 15px;
-        weight: 400;
-    }
+    outline: 0;
+
+    color: $kmcc_button-color !important;
+
+    font-size: 15px;
+    font-weight: 400;
 
     text-transform: uppercase;
     text-decoration: none;
     text-align: center;
-
-    outline: 0;
 
     transition: all .2s ease;
 

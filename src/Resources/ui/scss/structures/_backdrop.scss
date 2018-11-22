@@ -8,16 +8,16 @@
     left: -2.5%;
     z-index: $kmcc_z-modal-backdrop;
 
-    opacity: 0;
-
     width: calc(100% + 5%);
     height: calc(100% + 5%);
+
+    opacity: 0;
 
     background-color: $kmcc_grey;
 
     transition: .2s ease-in-out;
 
-    @media(min-width: $kmcc_screen-lg) {
+    @media (min-width: $kmcc_screen-lg) {
         background-color: rgba($kmcc_true-black, .6);
     }
 }

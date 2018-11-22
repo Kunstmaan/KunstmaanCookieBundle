@@ -15,9 +15,9 @@
     min-height: 300px;
     padding: 20px 20px;
 
-    background-color: $kmcc_white;
-
     flex-basis: auto;
+
+    background-color: $kmcc_white;
 
     @media (min-width: $kmcc_screen-md) {
         padding: 20px 40px;
@@ -61,12 +61,12 @@
 #legal_contact:checked ~ #legal_contact-label {
     background-color: transparent;
 
+    border: 1px solid $kmcc_black;
+    border-bottom: none;
+
     font-weight: 500;
 
     cursor: default;
-
-    border: 1px solid $kmcc_black;
-    border-bottom: none;
 
     .kmcc-cookie-modal & {
         background-color: $kmcc_white;

@@ -4,7 +4,7 @@
 
 /*  Variables
     ================================================================ */
-    $modal-spacing: 130px;
+$modal-spacing: 130px;
 
 /* General
    ========================================================================== */
@@ -19,15 +19,15 @@
 
     padding-top: 30px;
 
-    opacity: 0;
-
-    transition: .2s ease-in-out;
-
     overflow: hidden;
+
+    opacity: 0;
 
     background: transparent;
 
     font-size: 16px;
+
+    transition: .2s ease-in-out;
 
     .kmcc-container {
         max-width: none;
@@ -35,7 +35,7 @@
         margin: 0;
     }
 
-    @media(min-width: $kmcc_screen-lg) {
+    @media (min-width: $kmcc_screen-lg) {
         top: calc(#{$modal-spacing} / 2);
         left: 50%;
         bottom: auto;
@@ -53,8 +53,9 @@
 
     opacity: 1;
 
-    transition: .2s ease-in-out;
     background: transparent;
+
+    transition: .2s ease-in-out;
 }
 
 
@@ -74,7 +75,7 @@
         overflow-y: hidden;
     }
 
-    @media(min-width: $kmcc_screen-lg) {
+    @media (min-width: $kmcc_screen-lg) {
         height: auto;
         max-height: calc(100vh - #{$modal-spacing});
     }
@@ -114,7 +115,7 @@
 
     padding-right: 20px;
 
-    @media(min-width: $kmcc_screen-lg) {
+    @media (min-width: $kmcc_screen-lg) {
         position: sticky;
         top: 30px;
         left: 0;
@@ -160,7 +161,7 @@
     justify-content: flex-end;
 
     background-color: $kmcc_white;
-    box-shadow: 0px -9px 20px -15px rgba(0,0,0,0.5);
+    box-shadow: 0 -9px 20px -15px rgba(0, 0, 0, .5);
 
     .kmcc-cookie-modal & {
         z-index: $kmcc_z-sticky-footer;

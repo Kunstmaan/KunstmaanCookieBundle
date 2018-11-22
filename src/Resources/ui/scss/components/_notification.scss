@@ -14,21 +14,22 @@
 
     width: 100vw;
 
-    opacity: 0;
-
     transform: translateY(-100%);
 
-    transition: all .2s ease;
+    opacity: 0;
 
     background-color: $kmcc_secondary-color;
 
     color: $kmcc_white;
 
     text-align: center;
+
+    transition: all .2s ease;
 }
 
 .kmcc-notification--visible {
     transform: translateY(0);
+
     opacity: 1;
 }
 

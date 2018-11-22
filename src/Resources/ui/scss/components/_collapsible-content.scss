@@ -10,9 +10,7 @@
     flex-direction: row;
     align-items: center;
 
-    font: {
-        size: 18px;
-    }
+    font-size: 18px;
 
     color: $kmcc_headings;
 
@@ -78,9 +76,9 @@
 .kmcc-collapsible-content__content {
     padding-bottom: 30px;
 
-    transition: margin-top .2s ease;
-
     font-size: 16px;
+
+    transition: margin-top .2s ease;
 
     :first-child {
         margin-top: 0;

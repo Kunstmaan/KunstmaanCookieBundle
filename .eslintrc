@@ -1,6 +1,6 @@
 {
-    "extends": ["./node_modules/@kunstmaan/eslint-config/index.js"],
-    "rules": {
-      "no-plusplus": ["error", {"allowForLoopAfterthoughts": true}]
-    }
+  "extends": ["./node_modules/@kunstmaan/eslint-config/index.js"],
+  "rules": {
+
+  }
 }

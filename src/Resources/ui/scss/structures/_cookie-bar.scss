@@ -21,9 +21,7 @@
     h2 {
         margin: 0 0 30px;
 
-        font: {
-            size: 33px;
-        }
+        font-size: 33px;
         color: $kmcc_headings;
     }
 
@@ -101,10 +99,7 @@
         justify-content: center;
         align-items: center;
 
-        font: {
-            size: 16px;
-        }
-
+        font-size: 16px;
 
         @media (min-width: $kmcc_screen-xs) {
             margin-top: 0;
