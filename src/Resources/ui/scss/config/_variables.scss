@@ -1,6 +1,5 @@
 /* ==========================================================================
    INTERNAL Variables
-
    This file is exclusively intended for setting up variables
    Never add styles directly to this file
    These variables should not be overriden.
@@ -90,5 +89,7 @@ $kmcc-toggle-slider-range:         50px;
    ========================================================================== */
 $kmcc-fact__figure-width:          150px;
 
-
-
+/* Fact
+   ========================================================================== */
+$toggle-check-image:               "../../frontend/img/legal/svg/toggle--check.svg" !default;
+$toggle-cross-image:               "../../frontend/img/legal/svg/toggle--cross.svg" !default;
