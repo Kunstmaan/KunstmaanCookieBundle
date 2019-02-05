@@ -31,6 +31,14 @@
 
     ~ .kmcc-btn-toggle__text {
         margin: 0 0 0 10px;
+
+        .kmcc-btn-toggle__text--true {
+            display: none;
+        }
+
+        .kmcc-btn-toggle__text--false {
+            display: inline-block;
+        }
     }
 
     &:checked {
@@ -51,18 +59,6 @@
 
             .kmcc-btn-toggle__text--false {
                 display: none;
-            }
-        }
-    }
-
-    &:not(:checked) {
-        ~ .kmcc-btn-toggle__text {
-            .kmcc-btn-toggle__text--true {
-                display: none;
-            }
-
-            .kmcc-btn-toggle__text--false {
-                display: inline-block;
             }
         }
     }
