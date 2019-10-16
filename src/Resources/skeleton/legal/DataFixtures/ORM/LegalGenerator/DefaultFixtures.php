@@ -135,7 +135,7 @@ class DefaultFixtures extends AbstractFixture implements OrderedFixtureInterface
     public function createCookieTypes()
     {
         $cookieTypes = [
-            'functional_cookie' => 2,
+            'functional_cookie' => 3,
             'analyzing_cookie' => 1,
             'marketing_cookie' => 5,
         ];
