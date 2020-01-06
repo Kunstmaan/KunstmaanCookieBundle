@@ -25,6 +25,10 @@ services:
       arguments: ['@kunstmaan.legal_cookie_helper']
       tags: ['controller.service_arguments']
 
+  Kunstmaan\CookieBundle\Controller\CookieAdminListController:
+    arguments: ['@kunstmaan_admin.domain_configuration']
+    tags: ['controller.service_arguments']
+
   Kunstmaan\CookieBundle\Command\GenerateLegalCommand:
       arguments:
         - '@filesystem'

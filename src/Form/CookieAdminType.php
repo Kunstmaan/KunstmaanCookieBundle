@@ -6,8 +6,11 @@ use Kunstmaan\AdminBundle\Form\WysiwygType;
 use Kunstmaan\CookieBundle\Entity\CookieType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
  * Class CookieAdminType
@@ -58,6 +61,37 @@ class CookieAdminType extends AbstractType
                 ],
             ]
         );
+
+        if ($options['domainConfiguration']->isMultiDomainHost()) {
+            $hosts = $options['domainConfiguration']->getFullHostConfig();
+            $domains = [];
+            foreach($hosts as $host) {
+                $domains[] = $host['id'];
+            }
+            $domains = array_combine($domains, $domains);
+            $domains = array_merge(['kuma.cookie.adminlists.filter.all' => ''], $domains);
+
+            $builder->add('domain', ChoiceType::class, [
+                'label' => 'kuma.cookie.form.domain',
+                'choices' => $domains,
+                'required' => true,
+                'expanded' => false,
+                'multiple' => false,
+            ]);
+        } else {
+            $host = $options['domainConfiguration']->getHost();
+            $builder->add('domain', HiddenType::class, [
+                'data' => $host,
+            ]);
+
+        }
+    }
+
+    public function configureOptions(OptionsResolver $resolver)
+    {
+        $resolver->setDefaults([
+            'domainConfiguration' => null,
+        ]);
     }
 
     /**

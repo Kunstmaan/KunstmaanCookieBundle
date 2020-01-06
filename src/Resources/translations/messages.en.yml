@@ -5,19 +5,29 @@ kuma:
       cookie: Cookie list
       cookie_types: Cookie types
 
-    adminlists:
-      cookie_type:
-        name: Name
-        short_description: Short description
-        long_description: Long description
-        internal_name: Internal name
-        internal_name_with_explanation: Internal name (used as cookie name)
-        always_on: Always on
+    form:
+        domain: Domain
 
-      cookie:
-        name: Name
-        type: Type
-        description: Description
+    adminlists:
+        header:
+            domain: 'Domain'
+
+        filter:
+            domain: 'Domain'
+            all: 'all domains'
+
+        cookie_type:
+            name: Name
+            short_description: Short description
+            long_description: Long description
+            internal_name: Internal name
+            internal_name_with_explanation: Internal name (used as cookie name)
+            always_on: Always on
+
+        cookie:
+            name: Name
+            type: Type
+            description: Description
 
     config:
         help: "Comma seperated list of ip-addresses, can be wildcards. A datalayer will be triggered if the ip-address of the visitor equals one of these ip's."

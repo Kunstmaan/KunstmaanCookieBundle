@@ -41,6 +41,14 @@ class Cookie extends AbstractEntity
     private $type;
 
     /**
+     * @var string
+     * @Assert\NotNull()
+     *
+     * @ORM\Column(name="domain", type="string", length=255, nullable=true)
+     */
+    private $domain;
+
+    /**
      * Set name
      *
      * @param string $name
@@ -110,5 +118,17 @@ class Cookie extends AbstractEntity
     public function getType()
     {
         return $this->type;
+    }
+
+    public function getDomain()
+    {
+        return $this->domain;
+    }
+
+    public function setDomain($domain)
+    {
+        $this->domain = $domain;
+
+        return $this;
     }
 }

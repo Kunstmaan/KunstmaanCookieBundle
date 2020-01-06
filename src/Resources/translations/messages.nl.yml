@@ -5,7 +5,17 @@ kuma:
         cookie: Cookie lijst
         cookie_types: Cookie types
 
+    form:
+        domain: Domein
+
     adminlists:
+        header:
+            domain: 'Domein'
+
+        filter:
+            domain: 'Domein'
+            all: 'Alle domeinen'
+
         cookie_type:
             name: Naam
             short_description: Korte beschrijving
