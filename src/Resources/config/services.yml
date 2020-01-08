@@ -13,7 +13,7 @@ services:
   kunstmaan.legal_cookie_helper: '@Kunstmaan\CookieBundle\Helper\LegalCookieHelper'
 
   Kunstmaan\CookieBundle\Twig\CookieTwigExtension:
-      arguments: ['@doctrine.orm.entity_manager', '@kunstmaan.legal_cookie_helper']
+      arguments: ['@doctrine.orm.entity_manager', '@kunstmaan.legal_cookie_helper', '@kunstmaan_admin.domain_configuration']
       tags:
           -  { name: 'twig.extension' }
 

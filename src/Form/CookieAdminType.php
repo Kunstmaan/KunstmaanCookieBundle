@@ -79,9 +79,8 @@ class CookieAdminType extends AbstractType
                 'multiple' => false,
             ]);
         } else {
-            $host = $options['domainConfiguration']->getHost();
             $builder->add('domain', HiddenType::class, [
-                'data' => $host,
+                'data' => $options['domainConfiguration']->getHost(),
             ]);
 
         }

@@ -10,10 +10,8 @@ use Kunstmaan\AdminListBundle\AdminList\Configurator\AbstractDoctrineORMAdminLis
 use Kunstmaan\AdminListBundle\AdminList\FieldAlias;
 use Kunstmaan\AdminListBundle\AdminList\FilterType\ORM\EnumerationFilterType;
 use Kunstmaan\AdminListBundle\AdminList\FilterType\ORM\StringFilterType;
-use Kunstmaan\AdminListBundle\AdminList\FilterType\ORM;
 use Kunstmaan\AdminListBundle\Entity\OverviewNavigationInterface;
 use Kunstmaan\CookieBundle\Form\CookieAdminType;
-use Kunstmaan\RedirectBundle\Form\RedirectAdminType;
 
 /**
  * Class CookieAdminListConfigurator
@@ -64,8 +62,8 @@ class CookieAdminListConfigurator extends AbstractDoctrineORMAdminListConfigurat
         if ($this->domainConfiguration->isMultiDomainHost()) {
             $hosts = $this->domainConfiguration->getHosts();
             $domains = array_combine($hosts, $hosts);
-            $domains = array_merge(array('' => 'kuma.cookie.adminlists.filter.all'), $domains);
-            $this->addFilter('domain', new ORM\EnumerationFilterType('domain'), 'kuma.cookie.adminlist.filter.domain', $domains);
+            $domains = array_merge(['' => 'kuma.cookie.adminlists.filter.all'], $domains);
+            $this->addFilter('domain', new EnumerationFilterType('domain'), 'kuma.cookie.adminlist.filter.domain', $domains);
         }
     }
 

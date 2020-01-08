@@ -3,17 +3,22 @@
 namespace Kunstmaan\CookieBundle\Twig;
 
 use Doctrine\ORM\EntityManagerInterface;
+use Kunstmaan\AdminBundle\Helper\DomainConfiguration;
+use Kunstmaan\AdminBundle\Helper\DomainConfigurationInterface;
+use Kunstmaan\CookieBundle\Entity\Cookie;
 use Kunstmaan\CookieBundle\Entity\CookieConfig;
 use Kunstmaan\CookieBundle\Entity\CookieType;
 use Kunstmaan\CookieBundle\Helper\LegalCookieHelper;
 use Symfony\Component\HttpFoundation\Request;
+use Twig\Extension\AbstractExtension;
+use Twig\TwigFunction;
 
 /**
  * Class CookieTwigExtension
  *
  * @package Kunstmaan\CookieBundle\Twig
  */
-class CookieTwigExtension extends \Twig_Extension
+class CookieTwigExtension extends AbstractExtension
 {
     /** @var EntityManagerInterface */
     private $em;
@@ -21,16 +26,14 @@ class CookieTwigExtension extends \Twig_Extension
     /** @var LegalCookieHelper */
     private $cookieHelper;
 
-    /**
-     * CookieTwigExtension constructor.
-     *
-     * @param EntityManagerInterface $em
-     * @param LegalCookieHelper      $cookieHelper
-     */
-    public function __construct(EntityManagerInterface $em, LegalCookieHelper $cookieHelper)
+    /** @var DomainConfigurationInterface */
+    private $domainConfiguration;
+
+    public function __construct(EntityManagerInterface $em, LegalCookieHelper $cookieHelper, DomainConfigurationInterface $domainConfiguration)
     {
         $this->em = $em;
         $this->cookieHelper = $cookieHelper;
+        $this->domainConfiguration = $domainConfiguration;
     }
 
     /**
@@ -41,12 +44,26 @@ class CookieTwigExtension extends \Twig_Extension
     public function getFunctions()
     {
         return [
-            new \Twig_SimpleFunction('get_cookie_types', [$this, 'getCookieTypes']),
-            new \Twig_SimpleFunction('get_legal_cookie', [$this, 'getLegalCookie']),
-            new \Twig_SimpleFunction('get_visitor_type', [$this, 'getVisitorType']),
-            new \Twig_SimpleFunction('legal_cookie_is_enabled', [$this, 'isLegalCookieEnabled']),
-            new \Twig_SimpleFunction('is_granted_for_cookie_bundle', [$this, 'isGrantedForCookieBundle']),
+            new TwigFunction('get_cookie_types', [$this, 'getCookieTypes']),
+            new TwigFunction('get_legal_cookie', [$this, 'getLegalCookie']),
+            new TwigFunction('get_visitor_type', [$this, 'getVisitorType']),
+            new TwigFunction('cookie_in_domain', [$this, 'cookieAllowedForDomain']),
+            new TwigFunction('legal_cookie_is_enabled', [$this, 'isLegalCookieEnabled']),
+            new TwigFunction('is_granted_for_cookie_bundle', [$this, 'isGrantedForCookieBundle']),
         ];
+    }
+
+    public function cookieAllowedForDomain(Cookie $cookie)
+    {
+        if (empty($cookie->getDomain()) || $this->domainConfiguration->isMultiDomainHost() === false) {
+            return true;
+        }
+
+        $host = $this->domainConfiguration->getHost();
+        $config = $this->domainConfiguration->getFullHostConfig();
+        $currentDomain = $config[$host]['id'];
+
+        return $cookie->getDomain() === $currentDomain;
     }
 
     /**
