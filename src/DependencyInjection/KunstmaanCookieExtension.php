@@ -26,6 +26,6 @@ class KunstmaanCookieExtension extends Extension
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
 
-        $container->getDefinition(LegalCookieHelper::class)->setArgument(2, $config['cookie_lifetime']);
+        $container->getDefinition(LegalCookieHelper::class)->setArgument(2, $config['consent_cookie']['lifetime']);
     }
 }
