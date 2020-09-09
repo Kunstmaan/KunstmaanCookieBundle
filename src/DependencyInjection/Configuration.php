@@ -31,8 +31,8 @@ class Configuration implements ConfigurationInterface
                 ->arrayNode('consent_cookie')
                     ->children()
                         ->integerNode('lifetime')->defaultValue(LegalCookieHelper::DEFAULT_COOKIE_LIFETIME)->info('Default lifetime of 10 years')->end()
-                    ->end
-                ->end
+                    ->end()
+                ->end()
             ->end()
         ;
 
