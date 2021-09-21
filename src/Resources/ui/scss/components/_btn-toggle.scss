@@ -1,6 +1,7 @@
 /* ==========================================================================
    Components - Toggle Button
    ========================================================================== */
+@use 'sass:math';
 
 .kmcc-btn-toggle {
     position: relative;
@@ -46,7 +47,7 @@
             &:before {
                 left: calc(100% - (#{$kmcc-toggle-size} - #{floor($kmcc-toggle-size * .1)}));
 
-                padding: 0 (($kmcc-toggle-size / 2) - 5);
+                padding: 0 (math.div($kmcc-toggle-size, 2) - 5);
 
                 background: $kmcc_toggle-button--check url($toggle-check-image) 50% 50% no-repeat;
             }
